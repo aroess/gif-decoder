@@ -22,12 +22,12 @@ void write_ppm(color GLOBAL_COLOR_TABLE[], index_stream *istr, int gif_width, in
     if (write_fp == NULL) die ("Can't open output file");
 
     /* P6{LF}
-       #{LF} */
+       #{LF} -> optional comment*/
     memcpy(write_buffer, "P6", 2);
     write_buffer[2] = 0x0a;
-    write_buffer[3] = 0x23;
-    write_buffer[4] = 0x0a;
-    fwrite(write_buffer, 1, 5, write_fp);    
+    /* write_buffer[3] = 0x23; */
+    /* write_buffer[4] = 0x0a; */
+    fwrite(write_buffer, 1, 3, write_fp);    
  
     /* WIDTH {SPACE} HEIGHT */
     snprintf(write_buffer, log(gif_width)/log(10) + 2, "%d", gif_width); // no digits (log/log)+1 plus '\0' 
