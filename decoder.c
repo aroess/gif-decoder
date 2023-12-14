@@ -172,7 +172,8 @@ void lzw_decode(index_stream *istr, unsigned char bytes[], int bytes_len, unsign
     /* clear array */
     array_clear_to(&code_table, 0);
     free(push_arr);
-
+    /* set the correct index stream length */
+    istr->len = istr_offset;
 }
 
 /* allocates new array with (sizeof(int) * len) bytes
