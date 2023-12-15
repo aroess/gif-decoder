@@ -36,7 +36,7 @@ void write_ppm(color GLOBAL_COLOR_TABLE[], index_stream *istr, int gif_width, in
     write_buffer[0] = 0x20;
     fwrite(write_buffer, 1, 1, write_fp); 
 
-    snprintf(write_buffer, log(gif_width)/log(10) + 2, "%d", gif_height);
+    snprintf(write_buffer, log(gif_height)/log(10) + 2, "%d", gif_height);
     fwrite(write_buffer, 1, 3, write_fp);
 
     /* {LF}
